@@ -30,9 +30,10 @@ const Footer = () => (
       <div>
         <p className="footer-col-title">Follow</p>
         <ul className="footer-links">
-          <li><a href="#">LinkedIn</a></li>
-          <li><a href="#">Twitter / X</a></li>
-          <li><a href="#">Instagram</a></li>
+          <li><a href="https://www.linkedin.com/company/111200996/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+          <li><a href="https://x.com/LabDistribution" target="_blank" rel="noreferrer">Twitter / X</a></li>
+          <li><a href="https://www.instagram.com/thedistributionlab/" target="_blank" rel="noreferrer">Instagram</a></li>
+          <li><a href="mailto:thedistributionlab@gmail.com">Email Us</a></li>
         </ul>
       </div>
     </div>

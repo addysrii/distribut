@@ -1,9 +1,10 @@
 import { useState } from 'react'
 
 const socials = [
-  { name: 'LinkedIn', handle: '@thedistributionlab', abbr: 'in', href: '#' },
-  { name: 'Twitter / X', handle: '@thedistributionlab', abbr: 'X', href: '#' },
-  { name: 'Instagram', handle: '@thedistributionlab', abbr: 'ig', href: '#' },
+  { name: 'LinkedIn', handle: '@thedistributionlab', abbr: 'in', href: 'https://www.linkedin.com/company/111200996/' },
+  { name: 'Twitter / X', handle: '@LabDistribution', abbr: 'X', href: 'https://x.com/LabDistribution' },
+  { name: 'Instagram', handle: '@thedistributionlab', abbr: 'ig', href: 'https://www.instagram.com/thedistributionlab/' },
+  { name: 'Email', handle: 'thedistributionlab@gmail.com', abbr: '✉', href: 'mailto:thedistributionlab@gmail.com' },
 ]
 
 // ─────────────────────────────────────────────────────────────
