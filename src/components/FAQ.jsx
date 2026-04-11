@@ -53,28 +53,28 @@ const FAQ = () => {
   const rightFaqs = faqs.slice(mid)
 
   return (
-    <section className="faq-section" id="faq">
-      <div className="faq-inner">
-        <div className="section-label">FAQ</div>
-        <h2 className="faq-heading">
+    <section className="faq" id="faq">
+      <div className="faq__inner">
+        <div className="label">FAQ</div>
+        <h2 className="faq__h2">
           Questions founders
-          <span className="italic-line">always ask us.</span>
+          <em>always ask us.</em>
         </h2>
 
-        <div className="faq-grid">
+        <div className="faq__grid">
           <div>
             {leftFaqs.map((item, i) => (
               <div
-                className={`faq-item ${openIndex === i ? 'open' : ''}`}
+                className={`faq__item ${openIndex === i ? 'faq__item--open' : ''}`}
                 key={i}
                 onClick={() => toggle(i)}
               >
-                <div className="faq-question">
+                <div className="faq__question">
                   <span>{item.q}</span>
-                  <span className="faq-toggle">+</span>
+                  <span className="faq__toggle">+</span>
                 </div>
-                <div className="faq-answer">
-                  <p className="faq-answer-text">{item.a}</p>
+                <div className="faq__answer">
+                  <p>{item.a}</p>
                 </div>
               </div>
             ))}
@@ -84,16 +84,16 @@ const FAQ = () => {
               const idx = i + mid
               return (
                 <div
-                  className={`faq-item ${openIndex === idx ? 'open' : ''}`}
+                  className={`faq__item ${openIndex === idx ? 'faq__item--open' : ''}`}
                   key={idx}
                   onClick={() => toggle(idx)}
                 >
-                  <div className="faq-question">
+                  <div className="faq__question">
                     <span>{item.q}</span>
-                    <span className="faq-toggle">+</span>
+                    <span className="faq__toggle">+</span>
                   </div>
-                  <div className="faq-answer">
-                    <p className="faq-answer-text">{item.a}</p>
+                  <div className="faq__answer">
+                    <p>{item.a}</p>
                   </div>
                 </div>
               )

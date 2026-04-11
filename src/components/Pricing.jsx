@@ -12,9 +12,7 @@ const plans = [
       'AEO foundation',
       '30-day report',
     ],
-    divider: false,
     btn: 'Start Pilot →',
-    btnClass: 'pricing-btn-primary',
     featured: false,
   },
   {
@@ -31,9 +29,7 @@ const plans = [
       'Monthly reporting',
       'Dedicated channel management',
     ],
-    divider: true,
     btn: 'Start Retainer →',
-    btnClass: 'pricing-btn-white',
     featured: true,
     badge: 'Most Popular',
   },
@@ -50,46 +46,42 @@ const plans = [
       'Priority response',
       'Growth milestone tracking',
     ],
-    divider: false,
     btn: "Let's Talk →",
-    btnClass: 'pricing-btn-primary',
     featured: false,
   },
 ]
 
 const Pricing = () => (
-  <section className="pricing-section" id="pricing">
-    <div className="pricing-inner">
-      <div className="pricing-header">
-        <div className="section-label">Pricing</div>
-        <h2 className="pricing-heading">
+  <section className="pricing" id="pricing">
+    <div className="pricing__inner">
+        <div className="label">Pricing</div>
+        <h2 className="pricing__h2">
           Priced for real
-          <span className="italic-line">outcomes, not retainers.</span>
+          <em>outcomes, not retainers.</em>
         </h2>
-        <p className="pricing-subtext">
+        <p className="pricing__sub">
           Every engagement starts with a 30-day pilot. Low commitment, real work, honest results.
           See what we can do before deciding anything.
         </p>
-      </div>
 
-      <div className="pricing-cards">
+      <div className="pricing__cards">
         {plans.map((plan, i) => (
-          <div className={`pricing-card ${plan.featured ? 'featured' : ''}`} key={i}>
-            {plan.badge && <span className="pricing-badge">{plan.badge}</span>}
-            <p className="pricing-tier">{plan.tier}</p>
-            <p className="pricing-price">{plan.price}</p>
-            <p className="pricing-period">{plan.period}</p>
-            <p className="pricing-desc">{plan.desc}</p>
-            <ul className="pricing-features">
+          <div className={`p-card ${plan.featured ? 'p-card--featured' : ''}`} key={i}>
+            {plan.badge && <span className="p-card__badge">{plan.badge}</span>}
+            <p className="p-card__tier">{plan.tier}</p>
+            <p className="p-card__price">{plan.price}</p>
+            <p className="p-card__period">{plan.period}</p>
+            <p className="p-card__desc">{plan.desc}</p>
+            <ul className="p-card__features">
               {plan.features.map((f, j) => (
-                <li className="pricing-feature" key={j}>
-                  <span className="pricing-check">✓</span>
+                <li className="p-card__feature" key={j}>
+                  <span className="p-card__check">✓</span>
                   {f}
                 </li>
               ))}
             </ul>
-            {plan.divider && <div className="pricing-divider" />}
-            <a href="#contact" className={`pricing-btn ${plan.btnClass}`}>{plan.btn}</a>
+            {plan.featured && <div className="p-card__divider" />}
+            <a href="#contact" className={`p-card__btn ${plan.featured ? 'p-card__btn--white' : 'p-card__btn--dark'}`}>{plan.btn}</a>
           </div>
         ))}
       </div>

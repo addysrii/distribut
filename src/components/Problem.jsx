@@ -17,27 +17,24 @@ const problems = [
 ]
 
 const Problem = () => (
-  <section className="problem-section">
-    <div className="problem-inner">
-      <div className="section-label" style={{ color: 'rgba(255,255,255,0.4)' }}>
-        <span style={{ backgroundColor: 'rgba(255,255,255,0.4)' }} />
-        The Problem
-      </div>
-      <h2 className="problem-heading">
+  <section className="problem">
+    <div className="problem__inner">
+      <div className="label label--light">The Problem</div>
+      <h2 className="problem__h2">
         Great products die every day.
-        <span className="italic-line">Not because they were bad.</span>
+        <em>Not because they were bad.</em>
       </h2>
-      <p className="problem-subtext">
+      <p className="problem__sub">
         Because nobody found them. Distribution failure looks exactly like product failure.
         Most founders quit the right product for the wrong reason. We are here to make
         sure that never happens to you.
       </p>
-      <div className="problem-cards">
+      <div className="problem__grid">
         {problems.map((p, i) => (
-          <div className="problem-card" key={i}>
-            <span className="problem-card-num">{p.num}</span>
-            <h3 className="problem-card-title">{p.title}</h3>
-            <p className="problem-card-text">{p.text}</p>
+          <div className="problem__card" key={i}>
+            <span className="problem__num">{p.num}</span>
+            <h3 className="problem__title">{p.title}</h3>
+            <p className="problem__text">{p.text}</p>
           </div>
         ))}
       </div>

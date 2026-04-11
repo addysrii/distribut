@@ -15,11 +15,11 @@ const Ticker = () => {
   const doubled = [...tickerItems, ...tickerItems]
 
   return (
-    <div className="ticker-wrapper">
-      <div className="ticker-track">
+    <div className="ticker">
+      <div className="ticker__track">
         {doubled.map((item, i) => (
-          <span className="ticker-item" key={i}>
-            <span className="dot" />
+          <span className="ticker__item" key={i}>
+            <span className="ticker__dot" />
             {item}
           </span>
         ))}

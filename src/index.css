@@ -1,169 +1,44 @@
-/* =====================================================
-   THE DISTRIBUTION LAB — GLOBAL STYLES
-   ===================================================== */
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Colors */
-  --cream: #f5f3ee;
-  --cream-dark: #ece9e2;
-  --cream-mid: #e8e5de;
-  --dark-bg: #0f0f0f;
-  --dark-card: #1a1a1a;
-  --dark-card-border: #2a2a2a;
-  --green-dark: #1a4330;
-  --green-primary: #1e5038;
-  --green-light: #2d6a4f;
-  --green-accent: #2a6049;
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-muted: #7a7a7a;
-  --text-light: #aaaaaa;
-  --white: #ffffff;
+  --cream:        #F1EFE9;
+  --cream-border: #E4E1D8;
+  --cream-hover:  #E8E5DC;
+  --dark:         #1A1A1A;
+  --dark-section: #111111;
+  --dark-card:    #1E1E1E;
+  --dark-border:  #2C2C2C;
+  --green:        #24523E;
+  --green-hover:  #1D4232;
+  --green-light:  #2D6A50;
+  --text-body:    #1A1A1A;
+  --text-muted:   #5A5A5A;
+  --text-faint:   #8A8A8A;
+  --white:        #FFFFFF;
 
-  /* Typography */
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans:  'DM Sans', sans-serif;
+  --font-mono:  'DM Mono', monospace;
+  --font-serif: 'Playfair Display', serif;
 
-  /* Spacing */
-  --container-max: 1320px;
-  --container-padding: 2rem;
-  --section-padding-y: 6rem;
+  --max-w: 1280px;
+  --px: 2.5rem;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--cream);
-  color: var(--text-primary);
+  background: var(--cream);
+  color: var(--text-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Container */
-.container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-}
-
-/* Section label */
-.section-label {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--green-dark);
-  margin-bottom: 1.5rem;
-}
-
-.section-label::before {
-  content: '';
-  display: block;
-  width: 2rem;
-  height: 2px;
-  background: var(--green-dark);
-  border-radius: 2px;
-}
-
-/* Serif headings */
-.serif-heading {
-  font-family: var(--font-serif);
-  font-weight: 800;
-  line-height: 1.1;
-  color: var(--text-primary);
-}
-
-.serif-italic {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 700;
-  color: var(--green-dark);
-}
-
-/* Buttons */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--green-dark);
-  color: var(--white);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.2s, transform 0.15s;
-  text-decoration: none;
-}
-
-.btn-primary:hover {
-  background: var(--green-light);
-  transform: translateY(-1px);
-}
-
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  color: var(--text-primary);
-  border: 1.5px solid var(--cream-mid);
-  padding: 0.75rem 1.5rem;
-  font-family: var(--font-sans);
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: border-color 0.2s, color 0.2s;
-  text-decoration: none;
-}
-
-.btn-ghost:hover {
-  border-color: var(--text-secondary);
-  color: var(--text-primary);
-}
-
-/* Fade-in animation */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-up {
-  animation: fadeUp 0.7s ease forwards;
-}
+a { text-decoration: none; color: inherit; }
+button { font-family: var(--font-sans); }
 
 /* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--cream);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--cream-mid);
-  border-radius: 3px;
-}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--cream-border); border-radius: 3px; }

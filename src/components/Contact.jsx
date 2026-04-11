@@ -9,23 +9,20 @@ const socials = [
 
 // ─────────────────────────────────────────────────────────────
 // GOOGLE FORMS CONFIGURATION
-// 1. Go to your Google Form → ⋮ → "Get pre-filled link"
-// 2. Fill dummy text in each field → "Get Link"
-// 3. Copy the FORM_ID and each entry.XXXXXXXXX from the URL
 // ─────────────────────────────────────────────────────────────
 const GOOGLE_FORM_ACTION =
   'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse'
 
 const ENTRY_IDS = {
-  name:    'entry.XXXXXXXXX',   // ← replace with your entry ID for "Name"
-  product: 'entry.XXXXXXXXX',   // ← replace with your entry ID for "Product"
-  users:   'entry.XXXXXXXXX',   // ← replace with your entry ID for "User Count"
-  tried:   'entry.XXXXXXXXX',   // ← replace with your entry ID for "What Have You Tried"
+  name:    'entry.XXXXXXXXX',
+  product: 'entry.XXXXXXXXX',
+  users:   'entry.XXXXXXXXX',
+  tried:   'entry.XXXXXXXXX',
 }
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', product: '', users: '', tried: '' })
-  const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const [status, setStatus] = useState('idle')
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
@@ -40,8 +37,6 @@ const Contact = () => {
     body.append(ENTRY_IDS.tried,   form.tried)
 
     try {
-      // Google Forms doesn't support CORS, so we use no-cors.
-      // The fetch will always "succeed" from our side — responses go to your Google Sheet.
       await fetch(GOOGLE_FORM_ACTION, { method: 'POST', mode: 'no-cors', body })
       setStatus('success')
       setForm({ name: '', product: '', users: '', tried: '' })
@@ -51,52 +46,52 @@ const Contact = () => {
   }
 
   return (
-    <section className="contact-section" id="contact">
-      <div className="contact-inner">
+    <section className="contact" id="contact">
+      <div className="contact__inner">
         {/* Left */}
-        <div className="contact-left">
-          <p className="contact-left-label">Get Started</p>
-          <h2 className="contact-heading">
+        <div className="contact__left">
+          <div className="label label--light">Get Started</div>
+          <h2 className="contact__h2">
             Let's build your
-            <span className="italic-line">distribution engine.</span>
+            <em>distribution engine.</em>
           </h2>
-          <p className="contact-subtext">
+          <p className="contact__sub">
             Tell us about your product and where you are right now. We will
             review it and get back to you within 24 hours with honest thoughts
             on what distribution looks like for you.
           </p>
 
-          <div className="contact-meta">
-            <p className="contact-meta-label">Response Time</p>
-            <p className="contact-meta-value">Within 24 hours. Always.</p>
+          <div className="contact__meta">
+            <p className="contact__meta-label">Response Time</p>
+            <p className="contact__meta-val">Within 24 hours. Always.</p>
           </div>
 
-          <p className="find-us-label">Find Us Online</p>
+          <p className="find-label">Find Us Online</p>
           <div className="social-links">
             {socials.map((s, i) => (
-              <a className="social-link" href={s.href} key={i}>
-                <div className="social-link-left">
-                  <div className="social-icon-box">{s.abbr}</div>
+              <a className="social-link" href={s.href} key={i} target="_blank" rel="noreferrer">
+                <div className="social-link__left">
+                  <div className="social-link__icon">{s.abbr}</div>
                   <div>
-                    <span className="social-name">{s.name}</span>
-                    <span className="social-handle">{s.handle}</span>
+                    <span className="social-link__name">{s.name}</span>
+                    <span className="social-link__handle">{s.handle}</span>
                   </div>
                 </div>
-                <span className="social-arrow">→</span>
+                <span className="social-link__arrow">→</span>
               </a>
             ))}
           </div>
         </div>
 
         {/* Right — Form */}
-        <div className="contact-form">
+        <div className="cform">
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label className="form-label" htmlFor="name">Your Name</label>
+            <div className="cform__group">
+              <label className="cform__label" htmlFor="name">Your Name</label>
               <input
                 id="name"
                 name="name"
-                className="form-input"
+                className="cform__input"
                 type="text"
                 placeholder="Who are you?"
                 value={form.name}
@@ -104,12 +99,12 @@ const Contact = () => {
                 required
               />
             </div>
-            <div className="form-group">
-              <label className="form-label" htmlFor="product">Your Product</label>
+            <div className="cform__group">
+              <label className="cform__label" htmlFor="product">Your Product</label>
               <input
                 id="product"
                 name="product"
-                className="form-input"
+                className="cform__input"
                 type="text"
                 placeholder="What are you building?"
                 value={form.product}
@@ -117,24 +112,24 @@ const Contact = () => {
                 required
               />
             </div>
-            <div className="form-group">
-              <label className="form-label" htmlFor="users">Current User Count</label>
+            <div className="cform__group">
+              <label className="cform__label" htmlFor="users">Current User Count</label>
               <input
                 id="users"
                 name="users"
-                className="form-input"
+                className="cform__input"
                 type="text"
                 placeholder="How many users do you have right now?"
                 value={form.users}
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
-              <label className="form-label" htmlFor="tried">What Have You Tried?</label>
+            <div className="cform__group">
+              <label className="cform__label" htmlFor="tried">What Have You Tried?</label>
               <textarea
                 id="tried"
                 name="tried"
-                className="form-textarea"
+                className="cform__textarea"
                 placeholder="What distribution channels have you attempted? What happened?"
                 value={form.tried}
                 onChange={handleChange}
@@ -142,30 +137,20 @@ const Contact = () => {
               />
             </div>
             {status === 'success' ? (
-              <div style={{
-                background: 'rgba(255,255,255,0.12)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                borderRadius: '5px',
-                padding: '1rem',
-                textAlign: 'center',
-                color: '#fff',
-                fontSize: '0.875rem',
-                fontWeight: 600,
-              }}>
+              <div className="cform__success">
                 ✓ Sent! We'll be in touch within 24 hours.
               </div>
             ) : (
               <button
                 type="submit"
-                className="form-submit"
+                className="cform__submit"
                 disabled={status === 'loading'}
-                style={{ opacity: status === 'loading' ? 0.7 : 1, cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}
               >
                 {status === 'loading' ? 'Sending...' : "Send. Let's Talk. →"}
               </button>
             )}
             {status === 'error' && (
-              <p style={{ color: '#ffaaaa', fontSize: '0.78rem', marginTop: '0.5rem', textAlign: 'center' }}>
+              <p className="cform__error">
                 Something went wrong. Please try again.
               </p>
             )}

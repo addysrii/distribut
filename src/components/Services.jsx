@@ -38,29 +38,29 @@ const services = [
 ]
 
 const Services = () => (
-  <section className="services-section" id="services">
-    <div className="services-inner">
-      <div className="services-header">
+  <section className="services" id="services">
+    <div className="services__inner">
+      <div className="services__header">
         <div>
-          <div className="section-label">What We Do</div>
-          <h2 className="services-heading">
+          <div className="label">What We Do</div>
+          <h2 className="services__h2">
             Distribution is a system,
-            <span className="italic-line">not a single tactic.</span>
+            <em>not a single tactic.</em>
           </h2>
         </div>
-        <p className="services-desc">
+        <p className="services__desc">
           Reddit, LinkedIn, Twitter. Each one rewards founders who show up consistently and
           actually add value. We do that work for you so you can focus on the product.
         </p>
       </div>
 
-      <div className="services-grid">
+      <div className="services__grid">
         {services.map((service, i) => (
           <div className="service-card" key={i}>
-            <span className="service-icon">{service.icon}</span>
-            <h3 className="service-title">{service.title}</h3>
-            <p className="service-text">{service.text}</p>
-            <span className="service-tag">{service.tag}</span>
+            <span className="service-card__icon">{service.icon}</span>
+            <h3 className="service-card__title">{service.title}</h3>
+            <p className="service-card__text">{service.text}</p>
+            <span className="service-card__tag">{service.tag}</span>
           </div>
         ))}
       </div>
