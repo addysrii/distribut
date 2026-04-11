@@ -4,7 +4,7 @@ const socials = [
   { name: 'LinkedIn', handle: '@thedistributionlab', abbr: 'in', href: 'https://www.linkedin.com/company/111200996/' },
   { name: 'Twitter / X', handle: '@LabDistribution', abbr: 'X', href: 'https://x.com/LabDistribution' },
   { name: 'Instagram', handle: '@thedistributionlab', abbr: 'ig', href: 'https://www.instagram.com/thedistributionlab/' },
-  { name: 'Email', handle: 'thedistributionlab@gmail.com', abbr: '✉', href: 'mailto:thedistributionlab@gmail.com' },
+  { name: 'Reddit', handle: '@TheDistributionLab', abbr: 'rd', href: 'https://www.reddit.com/user/TheDistributionLab' },
 ]
 
 // ─────────────────────────────────────────────────────────────
@@ -15,13 +15,14 @@ const GOOGLE_FORM_ACTION =
 
 const ENTRY_IDS = {
   name:    'entry.XXXXXXXXX',
+  email:   'entry.XXXXXXXXX',
   product: 'entry.XXXXXXXXX',
   users:   'entry.XXXXXXXXX',
   tried:   'entry.XXXXXXXXX',
 }
 
 const Contact = () => {
-  const [form, setForm] = useState({ name: '', product: '', users: '', tried: '' })
+  const [form, setForm] = useState({ name: '', email: '', product: '', users: '', tried: '' })
   const [status, setStatus] = useState('idle')
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
@@ -32,6 +33,7 @@ const Contact = () => {
 
     const body = new FormData()
     body.append(ENTRY_IDS.name,    form.name)
+    body.append(ENTRY_IDS.email,   form.email)
     body.append(ENTRY_IDS.product, form.product)
     body.append(ENTRY_IDS.users,   form.users)
     body.append(ENTRY_IDS.tried,   form.tried)
@@ -39,7 +41,7 @@ const Contact = () => {
     try {
       await fetch(GOOGLE_FORM_ACTION, { method: 'POST', mode: 'no-cors', body })
       setStatus('success')
-      setForm({ name: '', product: '', users: '', tried: '' })
+      setForm({ name: '', email: '', product: '', users: '', tried: '' })
     } catch {
       setStatus('error')
     }
@@ -52,8 +54,8 @@ const Contact = () => {
         <div className="contact__left">
           <div className="label label--light">Get Started</div>
           <h2 className="contact__h2">
-            Let's build your
-            <em>distribution engine.</em>
+            Ready to build real
+            <em>distribution?</em>
           </h2>
           <p className="contact__sub">
             Tell us about your product and where you are right now. We will
@@ -93,8 +95,21 @@ const Contact = () => {
                 name="name"
                 className="cform__input"
                 type="text"
-                placeholder="Who are you?"
+                placeholder="Founder name"
                 value={form.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="cform__group">
+              <label className="cform__label" htmlFor="email">Work Email</label>
+              <input
+                id="email"
+                name="email"
+                className="cform__input"
+                type="email"
+                placeholder="you@company.com"
+                value={form.email}
                 onChange={handleChange}
                 required
               />

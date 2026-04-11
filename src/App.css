@@ -93,7 +93,7 @@
   font-weight: 800; line-height: 1.08; letter-spacing: -0.02em;
   color: var(--dark); margin-bottom: 0;
 }
-.hero__h1 em { font-style: italic; color: var(--green); display: block; }
+.hero__h1 em { font-style: italic; color: var(--green); display: block; font-weight: 700; }
 
 .hero__sub {
   font-size: 0.925rem; color: var(--text-muted); line-height: 1.75;
@@ -195,7 +195,7 @@
   color: rgba(255,255,255,0.4);
 }
 .ticker__dot {
-  width: 3px; height: 3px; border-radius: 50%;
+  width: 4px; height: 4px; border-radius: 50%;
   background: var(--green-light); flex-shrink: 0;
 }
 
@@ -229,13 +229,13 @@
 .problem__card {
   padding: 2.25rem 1.75rem;
   background: #181818;
-  border-right: 1px solid #252525;
+  border-right: 0.5px solid #252525;
 }
 .problem__card:last-child { border-right: none; }
 
 .problem__num {
-  font-family: var(--font-serif); font-size: 2.75rem; font-weight: 800;
-  color: #2C2C2C; display: block; line-height: 1; margin-bottom: 1.25rem;
+  font-family: var(--font-serif); font-size: 2.75rem; font-weight: 700;
+  color: rgba(255,255,255,0.05); display: block; line-height: 1; margin-bottom: 1.25rem;
 }
 .problem__title {
   font-size: 0.9rem; font-weight: 600; color: #fff;
@@ -274,8 +274,8 @@
 
 .service-card {
   padding: 2.25rem 2rem;
-  border-right: 1px solid var(--cream-border);
-  border-bottom: 1px solid var(--cream-border);
+  border-right: 0.5px solid var(--cream-border);
+  border-bottom: 0.5px solid var(--cream-border);
   background: var(--cream);
   transition: background 0.18s;
 }
@@ -389,7 +389,7 @@
 .pricing__cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; align-items: start; }
 
 .p-card {
-  border: 1px solid var(--cream-border); border-radius: 12px;
+  border: 0.5px solid var(--cream-border); border-radius: 12px;
   padding: 2.25rem 1.75rem; background: var(--cream); position: relative;
 }
 .p-card--featured {

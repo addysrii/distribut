@@ -21,9 +21,10 @@ const Footer = () => (
       <div>
         <p className="footer__col-title">Company</p>
         <ul className="footer__links">
-          <li><a href="#">How It Works</a></li>
-          <li><a href="#">Pricing</a></li>
-          <li><a href="#">FAQ</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
 
@@ -33,6 +34,7 @@ const Footer = () => (
           <li><a href="https://www.linkedin.com/company/111200996/" target="_blank" rel="noreferrer">LinkedIn</a></li>
           <li><a href="https://x.com/LabDistribution" target="_blank" rel="noreferrer">Twitter / X</a></li>
           <li><a href="https://www.instagram.com/thedistributionlab/" target="_blank" rel="noreferrer">Instagram</a></li>
+          <li><a href="https://www.reddit.com/user/TheDistributionLab" target="_blank" rel="noreferrer">Reddit</a></li>
           <li><a href="mailto:thedistributionlab@gmail.com">Email Us</a></li>
         </ul>
       </div>
